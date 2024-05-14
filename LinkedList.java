@@ -49,7 +49,7 @@ public class LinkedList<T> {
             this.head = temp.next;
             return d;
         }
-        for(int i = 0;i<pos-1 && temp!=null;i++){
+        for(int i = 1;i<pos && temp!=null;i++){
             temp = temp.next;
         }
         if (temp==null||temp.next==null) {
