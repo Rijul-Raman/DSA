@@ -20,7 +20,7 @@ public class DynamicStack<T> {
     public T pop() {
         try {
             if(size==0) {
-                throw new IllegalAccessException("Stack Underflow");
+                throw new RuntimeException("Stack Underflow");
             }
             Node temp = top;
             T d = temp.data;
@@ -29,7 +29,7 @@ public class DynamicStack<T> {
             size--;
             return d;
         }
-        catch(IllegalAccessException e) {
+        catch(RuntimeException e) {
             throw new IllegalStateException("Cannot pop from Stack: "+e.getMessage());
         }
     }
@@ -37,11 +37,11 @@ public class DynamicStack<T> {
     public T peek() {
         try {
             if(size==0) {
-                throw new IllegalAccessException("Stack Underflow");
+                throw new RuntimeException("Stack Underflow");
             }
             return top.data;
         }
-        catch(IllegalAccessException e) {
+        catch(RuntimeException e) {
             throw new IllegalStateException("Cannot retrieve from Stack: "+e.getMessage());
         }
     }
