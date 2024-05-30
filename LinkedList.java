@@ -152,13 +152,13 @@ public class LinkedList<T> {
 
     @Override
     public String toString(){
-        String out = "{";
+        String out = "";
         Node tnode = head;
         while (tnode.next != null) {
-            out = out+tnode.data+", ";
+            out = out+tnode.data+" --> ";
             tnode = tnode.next;
         }
-        out = out+tnode.data+"}";
+        out = out+tnode.data;
         return out;
     }
 
@@ -169,6 +169,7 @@ public class LinkedList<T> {
         lla.append(3);
         lla.append(4);
         lla.append(5);
+        lla.deleteNode(4);
         System.out.println(lla);
     }
 
