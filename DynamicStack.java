@@ -19,7 +19,7 @@ public class DynamicStack<T> {
 
     public T pop() {
         try {
-            if(top==null) {
+            if(size==0) {
                 throw new IllegalAccessException("Stack Underflow");
             }
             Node temp = top;
@@ -36,7 +36,7 @@ public class DynamicStack<T> {
 
     public T peek() {
         try {
-            if(top==null) {
+            if(size==0) {
                 throw new IllegalAccessException("Stack Underflow");
             }
             return top.data;
@@ -52,14 +52,22 @@ public class DynamicStack<T> {
 
     @Override
     public String toString() {
-        String out = "";
-        Node temp = top;
-        while(temp.next!=null){
-            out = out + temp.data + ", ";
-            temp = temp.next;
+        try{
+            if(size==0){
+                throw new IllegalAccessException("Stack Underflow");
+            }
+            String out = "";
+            Node temp = top;
+            while(temp.next!=null){
+                out = out + temp.data + ", ";
+                temp = temp.next;
+            }
+            out = out + temp.data;
+            return out;
         }
-        out = out + temp.data;
-        return out;
+        catch(IllegalAccessException e) {
+            throw new IllegalStateException("Cannot print Stack: "+e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
@@ -71,13 +79,5 @@ public class DynamicStack<T> {
         stack.push(50);
         stack.push(60);
         System.out.println(stack);
-        System.out.println(stack.length());
-        System.out.println(stack.peek());
-        int d = stack.pop();
-        System.out.println(d);
-        d = stack.pop();
-        System.out.println(d);
-        System.out.println(stack);
-        System.out.println(stack.length());
     }
 }
