@@ -1,6 +1,6 @@
 public class DynamicStack<T> {
     Node top;
-    int size;
+    int size = 0;
 
     class Node {
         T data;
@@ -14,6 +14,7 @@ public class DynamicStack<T> {
         Node new_node = new Node(d);
         new_node.next = top;
         top = new_node;
+        size++;
     }
 
     public T pop() {
@@ -25,6 +26,7 @@ public class DynamicStack<T> {
             T d = temp.data;
             top = temp.next;
             temp.next = null;
+            size--;
             return d;
         }
         catch(IllegalAccessException e) {
@@ -42,6 +44,10 @@ public class DynamicStack<T> {
         catch(IllegalAccessException e) {
             throw new IllegalStateException("Cannot retrieve from Stack: "+e.getMessage());
         }
+    }
+
+    public int length() {
+        return size;
     }
 
     @Override
@@ -65,11 +71,13 @@ public class DynamicStack<T> {
         stack.push(50);
         stack.push(60);
         System.out.println(stack);
+        System.out.println(stack.length());
         System.out.println(stack.peek());
         int d = stack.pop();
         System.out.println(d);
         d = stack.pop();
         System.out.println(d);
         System.out.println(stack);
+        System.out.println(stack.length());
     }
 }
