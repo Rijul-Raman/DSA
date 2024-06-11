@@ -42,6 +42,10 @@ public class Queue<T> {
         }        
     }
 
+    public T peek() {
+        return front.data;
+    }
+
     public int length() {
         return size;
     }
