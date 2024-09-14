@@ -1,4 +1,4 @@
-public class LinkedList<T> {
+public class SinglyLinkedList<T> {
     Node head;
 
     class Node {
@@ -134,7 +134,7 @@ public class LinkedList<T> {
         return -1;
     }
 
-    public boolean isIdentical(LinkedList<T> llb) {
+    public boolean isIdentical(SinglyLinkedList<T> llb) {
         Node ta = this.head;
         Node tb = llb.head;
         while(ta!=null && tb!=null){
@@ -163,7 +163,7 @@ public class LinkedList<T> {
     }
 
     public static void main(String[] args) {
-        LinkedList<Integer> lla = new LinkedList<Integer>();
+        SinglyLinkedList<Integer> lla = new SinglyLinkedList<Integer>();
         lla.append(1);
         lla.append(2);
         lla.append(3);
